@@ -1,0 +1,266 @@
+
+Q- What is a monolithic architecture?
+A monolithic architecture is a traditional model of a software program, which is built as a unified unit that is self-contained and independent from other applications. The word “monolith” is often attributed to something large and glacial, which isn’t far from the truth of a monolith architecture for software design. A monolithic architecture is a singular, large computing network with one code base that couples all of the business concerns together.  To make a change to this sort of application requires updating the entire stack by accessing the code base and building and deploying an updated version of the service-side interface. This makes updates restrictive and time-consuming. 
+Monoliths can be convenient early on in a project's life for ease of code management, cognitive overhead, and deployment. This allows everything in the monolith to be released at once.
+
+Advantages of a monolithic architecture
+Organizations can benefit from either a monolithic or microservices architecture, depending on a number of different factors. When developing using a monolithic architecture, the primary advantage is fast development speed due to the simplicity of having an application based on one code base. 
+
+The advantages of a monolithic architecture include: 
+
+Easy deployment – One executable file or directory makes deployment easier.
+
+Development – When an application is built with one code base, it is easier to develop.
+
+Performance – In a centralized code base and repository, one API can often perform the same function that numerous APIs perform with microservices.
+
+Simplified testing – Since a monolithic application is a single, centralized unit, end-to-end testing can be performed faster than with a distributed application. 
+
+Easy debugging – With all code located in one place, it’s easier to follow a request and find an issue.
+
+Disadvantages of a monolithic architecture
+As with the case of Netflix, monolithic applications can be quite effective until they grow too large and scaling becomes a challenge. Making a small change in a single function requires compiling and testing the entire platform, which goes against the agile approach today’s developers favor. 
+
+The disadvantages of a monolith include: 
+
+Slower development speed – A large, monolithic application makes development more complex and slower.
+
+Scalability – You can’t scale individual components.
+
+Reliability – If there’s an error in any module, it could affect the entire application’s availability.
+
+Barrier to technology adoption – Any changes in the framework or language affects the entire application, making changes often expensive and time-consuming.
+
+Lack of flexibility – A monolith is constrained by the technologies already used in the monolith.
+
+Deployment – A small change to a monolithic application requires the redeployment of the entire monolith.
+
+
+Q- What is Microservice?
+A- A microservices architecture, also simply known as microservices, is an architectural method that relies on a series of independently deployable services. These services have their own business logic and database with a specific goal. Updating, testing, deployment, and scaling occur within each service. Microservices decouple major business, domain-specific concerns into separate, independent code bases. Microservices don’t reduce complexity, but they make any complexity visible and more manageable by separating tasks into smaller processes that function independently of each other and contribute to the overall whole. 
+
+Microservices are by no means a silver bullet, but they solve a number of problems for growing software and companies. Since a microservices architecture consists of units that run independently, each service can be developed, updated, deployed, and scaled without affecting the other services. Software updates can be performed more frequently, with improved reliability, uptime, and performance. 
+
+Agility – Promote agile ways of working with small teams that deploy frequently.
+
+Flexible scaling – If a microservice reaches its load capacity, new instances of that service can rapidly be deployed to the accompanying cluster to help relieve pressure. We are now multi-tenanant and stateless with customers spread across multiple instances. Now we can support much larger instance sizes. 
+
+Continuous deployment – We now have frequent and faster release cycles. Before we would push out updates once a week and now we can do so about two to three times a day. 
+
+Highly maintainable and testable – Teams can experiment with new features and roll back if something doesn’t work. This makes it easier to update code and accelerates time-to-market for new features. Plus, it is easy to isolate and fix faults and bugs in individual services.
+
+Independently deployable – Since microservices are individual units they allow for fast and easy independent deployment of individual features. 
+
+Technology flexibility – Microservice architectures allow teams the freedom to select the tools they desire. 
+
+High reliability – You can deploy changes for a specific service, without the threat of bringing down the entire applications
+
+The disadvantages of microservices can include: 
+
+Development sprawl – Microservices add more complexity compared to a monolith architecture, since there are more services in more places created by multiple teams. If development sprawl isn’t properly managed, it results in slower development speed and poor operational performance. 
+
+Exponential infrastructure costs – Each new microservice can have its own cost for test suite, deployment playbooks, hosting infrastructure, monitoring tools, and more.
+
+Added organizational overhead – Teams need to add another level of communication and collaboration to coordinate updates and interfaces. 
+
+Debugging challenges – Each microservice has its own set of logs, which makes debugging more complicated. Plus, a single business process can run across multiple machines, further complicating debugging. 
+
+Lack of standardization – Without a common platform, there can be a proliferation of languages, logging standards, and monitoring. 
+
+conclusion- Microservices may not be for everyone. A legacy monolith may work perfectly well, and breaking it down may not be worth the trouble. But as organizations grow and the demands on their applications increase, microservices architecture can be worthwhile. 
+
+Q- Why do we need useEffect?
+A- The idea to use useEffect hook is to execute code that needs happens during lifecycle of the component, means just after the Initail render of the component or just after initial render of the component + when dependency changes,  instead of on specific user interactions or DOM events.
+
+Q- What is optional Chaining?
+A- The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called is undefined or null, it returns undefined instead of throwing an error.
+const adventurer = {
+  name: 'Alice',
+  cat: {
+    name: 'Dinah'
+  }
+};
+
+const dogName = adventurer.dog?.name;
+console.log(dogName);
+// Expected output: undefined
+
+console.log(adventurer.someNonExistentMethod?.());
+// Expected output: undefined
+
+The ?. operator is like the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined. When used with function calls, it returns undefined if the given function does not exist.
+const foo = { someFooProp: "hi" };
+
+console.log(foo.someFooProp?.toUpperCase() ?? "not available"); // "HI"
+console.log(foo.someBarProp?.toUpperCase() ?? "not available"); // "not available"
+
+Q- What is Diffrence between JS Expression and JS Statement?
+A- Want to know whether a chunk of JS is an expression or a statement? Try to log it out!
+console.log(/* Some chunk of JS here */);
+If it runs, the code is an expression. If you get an error, it's a statement (or, possibly, invalid JS).
+
+As a bonus, we can even see what the expression resolves to, since it'll be printed in the browser console!
+
+This works because all function arguments must be expressions. Expressions produce a value, and that value will be passed into the function. Statements don't produce a value, and so they can't be used as function arguments.
+
+Wherever JavaScript expects a statement, you can also write an expression. Such a statement is called an expression statement. The reverse does not hold: you cannot write a statement where JavaScript expects an expression. For example, an if statement cannot become the argument of a function.
+
+Q- What is conditional Rendring in react, explain it with code?
+A- 1- Prevent rendering with null
+  import React from 'react';
+  function Rendering(props) {
+      if (parseInt(props.value) % 2 != 0) {
+          return null;
+      }
+      if (parseInt(props.value) % 2 == 0) {
+          return (
+              <div style={{ display: 'inline', padding: '2%' }}>
+                  <div style={{ background: 'green', color: 'white', 
+                      display: 'inline', padding: '1%' }}>
+                      {props.value}
+                  </div>
+              </div>
+          )
+      }
+    
+  function App() {
+      return (
+          <div className="App">
+              <div>
+                  <h1 style={{ color: 'green' }}>GeeksforGeeks</h1>
+                  <h3>Preventing Rendering of Components in React</h3>
+                  <h1 style={{ color: 'green' }}>
+                      Only Even props will be displayed</h1>
+                  <br></br>
+                  <Rendering value="1" />
+                  <Rendering value="2" />
+                  <Rendering value="3" />
+                  <Rendering value="4" />
+                  <Rendering value="5" />
+                  <Rendering value="6" />
+                  <Rendering value="7" />
+                  <Rendering value="8" />
+                  <Rendering value="9" />
+                  <Rendering value="10" />
+              </div>
+          </div>
+      );
+  }
+  export default App;
+  Explanation: See component is called 10 times but components with odd props are prevented from rendering by returning null. 
+
+2- Declaring Element Variables
+  For example, if you want to render only a login button when the user is not signed in and a logout button only when they are signed in, you can use element variables.
+  function LoginBtn(props) {
+    return (
+      <button onClick={props.onClick}>
+        Login
+      </button>
+    );
+  }
+  function LogoutBtn(props) {
+    return (
+      <button onClick={props.onClick}>
+        Logout
+      </button>
+    );
+  }
+  function Dashboard() {
+    const [loggedIn, setLoggedIn] = useState(true)
+    const handleLogin = () => {
+      setLoggedIn(true)
+    }
+    const handleLogout = () => {
+      setLoggedIn(false)
+    }
+    let button;
+    if (loggedIn) {
+          button = <LogoutBtn onClick={handleLogout}/>
+    } else {
+      button = <LoginBtn onClick={handleLogin}/>
+    }
+      return (
+        <>
+          {loggedIn}
+        </>
+      )
+  }
+3- Using If--else block
+  function Goal(props) {
+    const isGoal = props.isGoal;
+    if (isGoal) {
+      return <MadeGoal/>;
+    }
+    return <MissedGoal/>;
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<Goal isGoal={false} />);
+
+3- Ternary operator
+  Return the MadeGoal component if isGoal is true, otherwise return the MissedGoal component:
+  function Goal(props) {
+    const isGoal = props.isGoal;
+    return (
+      <>
+        { isGoal ? <MadeGoal/> : <MissedGoal/> }
+      </>
+    );
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<Goal isGoal={false} />);
+
+4- Logical && Operator
+  Exp- If cars.length > 0 is equates to true, the expression after && will render.
+  function Garage(props) {
+    const cars = props.cars;
+    return (
+      <>
+        <h1>Garage</h1>
+        {cars.length > 0 &&
+          <h2>
+            You have {cars.length} cars in your garage.
+          </h2>
+        }
+      </>
+    );
+  }
+
+  const cars = ['Ford', 'BMW', 'Audi'];
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<Garage cars={cars} />);
+
+
+Q- What is CROS
+A- “CORS” stands for Cross-Origin Resource Sharing. It allows you to make requests from one website to another website in the browser, which is normally prohibited by another browser policy called the Same-Origin Policy (SOP)
+
+Q- What is Async Await
+A- The async function declaration declares an async function where the await keyword is permitted within the function body. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
+
+Async functions can contain zero or more await expressions. Await expressions make promise-returning functions behave as though they're synchronous by suspending execution until the returned promise is fulfilled or rejected. The resolved value of the promise is treated as the return value of the await expression. Use of async and await enables the use of ordinary try / catch blocks around asynchronous code.
+
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log('calling');
+  const result = await resolveAfter2Seconds();
+  console.log(result);
+  // Expected output: "resolved"
+}
+
+asyncCall();
+
+Q- What is use of const json = await data.json() in getRestaurants()
+A-  from the server response we get  data, now we can parse the JSON into a plain JavaScript object using await data.json() (note: data.json() returns a promise!).
+
+
+
+
+
